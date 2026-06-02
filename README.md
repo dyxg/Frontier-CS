@@ -155,6 +155,61 @@ uv run frontier harbor trial 2.0 erdos_demo -a codex -m gpt-5.5 --json
 
 See [2.0/README.md](2.0/README.md) for the current 2.0 track.
 
+### BBOPlace Harbor Tasks
+
+BBOPlace-Bench is available as a Harbor-only track in this repo. Use it through
+`frontier harbor trial`; there is no direct `frontier eval` mode for BBOPlace.
+Like the Algorithmic and 2.0 Harbor tracks, the Frontier-CS wrapper
+auto-generates a missing Harbor task before starting the trial. Generated tasks
+live under `.frontier-cs/harbor/datasets/`, trials under
+`.frontier-cs/harbor/trials/`, the agent gets `/app/submit.sh` for iterative
+feedback, and the final reward keeps the best successful iterative submission.
+
+Real BBOPlace runs require benchmark data before task generation. Download the
+original datasets linked from [bboplace/README.md](bboplace/README.md) and put
+the extracted directories here:
+
+```text
+bboplace/benchmarks/
+  ispd2005/
+    adaptec1/
+    adaptec2/
+    ...
+  iccad2015/
+    superblue1/
+    superblue3/
+    ...
+```
+
+After the data is present, run the task. The wrapper generates the Harbor task
+on first use and copies the selected benchmark into the Harbor judge image. The
+agent inside a trial does not download benchmark files and cannot read them
+directly. It should call `python3 /app/submit.py --info` for dimensions/bounds
+and `bash /app/submit.sh` for black-box score feedback.
+
+```bash
+# Optional: pre-pull the BBOPlace image used by generated tasks
+docker pull duketomlist/bboplace-bench:2.1.0
+
+# Run BBOPlace adaptec1 with the default mgo placer.
+# If the generated task is missing, this command creates it first.
+uv run frontier harbor trial bboplace adaptec1 -a codex -m gpt-5.5 --json
+
+# Use another BBOPlace formulation
+uv run frontier harbor trial bboplace adaptec1 --placer sp -a codex -m gpt-5.5
+```
+
+Use `frontier harbor generate` only when you want to pre-generate the task or
+refresh an existing generated task after adding or changing benchmark data:
+
+```bash
+uv run frontier harbor generate bboplace adaptec1 --overwrite
+```
+
+For adapter debugging only, `--allow-missing-benchmark` can generate a
+structural task without data. That task is not runnable and must be regenerated
+after the benchmark files are added.
+
 ### Research Problems
 
 ```bash
