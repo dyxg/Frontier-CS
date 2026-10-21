@@ -10,7 +10,9 @@
 
 <p align="center">
   <a href="https://frontier-cs.org"><img src="https://img.shields.io/badge/Website-frontier--cs.org-orange?logo=googlechrome" alt="Website"></a>
-  <a href="https://discord.gg/k4hd2nU4UE"><img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
+    <a href="https://join.slack.com/t/frontiercs-org/shared_invite/zt-4dnz0xq9i-ifOETjXu_VFAPZKxZ26dnA">
+  <img src="https://img.shields.io/badge/Slack-Join_Community-4A154B?style=flat&logo=slack&logoColor=white" alt="Slack"></a>  
+  <a href="https://discord.gg/Mhd6CZeQa"><img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
   <a href="https://deepwiki.com/FrontierCS/Frontier-CS"><img src="https://img.shields.io/badge/DeepWiki-Documentation-blue?logo=bookstack&logoColor=white" alt="DeepWiki"></a>
   <br>
   <a href="https://arxiv.org/abs/2512.15699"><img src="https://img.shields.io/badge/arXiv-2512.15699-b31b1b?logo=arxiv&logoColor=white" alt="arXiv"></a>
@@ -23,6 +25,7 @@
 </p>
 
 ## News
+- **Oct 20, 2026:** FrontierCS 2 is live: 48 research tasks in 13 domains, each built from a published paper and the code its authors released, where agents must beat the original code. See [frontier-cs.org](https://frontier-cs.org) and the [FrontierCS 2 repository](https://github.com/FrontierCS/FrontierCS-2).
 - **Sep 28, 2026:** [FrontierSmith](https://arxiv.org/abs/2605.14445) was selected as a NeurIPS 2026 Spotlight (top 0.95%).
 - **Sep 28, 2026:** We released [200 FrontierSmith problems](https://github.com/FrontierCS/FrontierSmith) to support community research on training models for open-ended problem solving.
 - **Jun 25, 2026:** FrontierCS was selected as one of 13 projects for [Slingshots // THREE](https://www.laude.org/updates/slingshots-three).
